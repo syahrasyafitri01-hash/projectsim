@@ -1,0 +1,3025 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B63D6">
+  <title>SMA Cerdas Digital - Ekosistem Pendidikan Premium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #F8F9FC;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f9fafb;
+      --text-primary: #0F1419;
+      --text-secondary: #536471;
+      --accent-gold: #FFD700;
+      --accent-blue: #0B63D6;
+      --accent-green: #00D27A;
+      --accent-red: #FF4757;
+      --border-color: #E8ECF0;
+      --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 40px rgba(11, 99, 214, 0.08);
+      --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.12);
+      --gradient-hero: linear-gradient(135deg, #0a1f3d 0%, #1a3a6e 25%, #0B63D6 60%, #00D27A 100%);
+      --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      --header-bg: rgba(255, 255, 255, 0.95);
+      --card-bg: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0e27;
+      --bg-secondary: #151932;
+      --bg-tertiary: #1a1f3a;
+      --text-primary: #e5e7eb;
+      --text-secondary: #9ca3af;
+      --border-color: #2d3348;
+      --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.6);
+      --header-bg: rgba(21, 25, 50, 0.8); /* Dibuat lebih transparan untuk efek mewah */
+      --card-bg: #151932;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
+      line-height: 1.6;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    /* Utility */
+    .hidden {
+      display: none !important;
+    }
+
+    /* --- FASE 4: STRUKTUR WEBSITE PUBLIK (PROFESIONAL) --- */
+
+    .public-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .public-header {
+      background: var(--header-bg);
+      backdrop-filter: blur(20px) saturate(180%); /* EFEK KACA SUPER MEWAH */
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .public-logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      background: linear-gradient(135deg, #0B63D6, #00D27A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .public-nav {
+      display: flex;
+      gap: 24px;
+    }
+    .public-nav button {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .public-nav button:hover {
+      color: var(--text-primary);
+    }
+    .public-nav button.active {
+      color: var(--accent-blue);
+    }
+
+    .btn-portal {
+      padding: 10px 20px;
+      background: var(--accent-blue);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-portal:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(11, 99, 214, 0.3);
+    }
+
+    .public-main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .public-footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 40px;
+      text-align: center;
+    }
+    .public-footer p {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    .public-footer .social-links {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 20px;
+    }
+
+    /* --- KONTEN HALAMAN PUBLIK --- */
+    .hero-publik {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 80px 60px;
+      text-align: center;
+      border: 2px solid var(--border-color);
+      background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .hero-publik h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .hero-publik .gradient-text {
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-publik p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .article-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 2px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    .article-card-img {
+      height: 200px;
+      background: var(--bg-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+    }
+    .article-card-content {
+      padding: 20px;
+    }
+    .article-card-content h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .article-card-content p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* --- AKHIR CSS PUBLIK --- */
+
+    /* Landing Page (Login) */
+    .landing-page {
+      /* KINI FULLSCREEN MODAL */
+      min-height: 100vh;
+      width: 100%;
+      background: var(--gradient-hero);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: fixed; /* Diubah menjadi fixed */
+      top: 0;
+      left: 0;
+      z-index: 2000; /* Di atas segalanya */
+      overflow: hidden;
+    }
+
+    .landing-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 20% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 70%, rgba(0, 210, 122, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+      animation: glow 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    /* ... (CSS landing-container, landing-content, dll tetap sama) ... */
+    .landing-container {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .landing-content h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 56px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .landing-content .gradient-text {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .landing-content p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .landing-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .landing-stat {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .landing-stat-value {
+      font-size: 32px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .landing-stat-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Login Card (KINI SUPER MEWAH) */
+    .login-card {
+      background: rgba(255, 255, 255, 0.1); /* Latar semi-transparan (MEWAH) */
+      backdrop-filter: blur(30px) saturate(120%); /* Efek blur kaca (MEWAH) */
+      border-radius: 28px;
+      padding: 48px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25); /* Bayangan lebih dramatis */
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Border tipis */
+      max-width: 480px;
+      width: 100%;
+    }
+    /* Buat teks di dalam card tetap jelas di atas background blur */
+    .login-card .login-header h2,
+    .login-card .form-group label,
+    .login-card .demo-info h4 {
+      color: var(--bg-secondary); /* Putih */
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .login-card .login-header p,
+    .login-card .demo-info p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .login-card .role-tabs {
+      background: rgba(0, 0, 0, 0.25); /* Latar tab lebih gelap */
+    }
+    .login-card .role-tab {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    /* Ganti warna input agar kontras */
+    .login-card .form-group input {
+      background: rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+    .login-card .form-group input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .login-card .form-group input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 4px rgba(11, 99, 214, 0.2);
+    }
+    .login-card .demo-info {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    /* Akhir CSS Login Card */
+    
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, #0B63D6, #00D27A);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 12px 40px rgba(11, 99, 214, 0.3);
+      position: relative;
+    }
+
+    .login-logo .premium-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--gradient-gold);
+      color: #0a1f3d;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .role-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 6px;
+      border-radius: 12px;
+    }
+
+    .role-tab {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .role-tab.active {
+      background: var(--accent-blue);
+      color: white;
+      box-shadow: 0 4px 12px rgba(11, 99, 214, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0B63D6, #0952b8);
+      color: white;
+      box-shadow: 0 8px 24px rgba(11, 99, 214, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(11, 99, 214, 0.45);
+    }
+
+    .demo-info {
+      margin-top: 24px;
+      padding: 16px;
+      border-radius: 12px;
+    }
+    
+    /* Tombol Batal Login (BARU) */
+    .btn-cancel {
+      background: rgba(0,0,0,0.2);
+      color: rgba(255,255,255,0.8);
+      box-shadow: none;
+      margin-top: 12px;
+    }
+    .btn-cancel:hover {
+      background: rgba(0,0,0,0.4);
+      color: white;
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    /* Dashboard */
+    .dashboard {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: fixed; /* Diubah menjadi fixed */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1500; /* Di atas Publik, di bawah Login */
+    }
+
+    .dashboard-header {
+      background: var(--header-bg);
+      backdrop-filter: blur(30px);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .dashboard-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      background: linear-gradient(135deg, #0B63D6, #00D27A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .dashboard-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #0B63D6, #00D27A);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .dashboard-user {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .user-info {
+      text-align: right;
+    }
+
+    .user-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+
+    .user-role {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .btn-logout {
+      padding: 10px 20px;
+      background: var(--accent-red);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-logout:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 71, 87, 0.3);
+    }
+
+    .dashboard-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      /* Ketinggian harus dihitung */
+      height: calc(100vh - 81px); /* 100vh - tinggi header */
+    }
+
+    .dashboard-sidebar {
+      width: 280px;
+      background: var(--card-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+    }
+
+    .sidebar-menu li {
+      margin-bottom: 8px;
+    }
+
+    .sidebar-menu button {
+      width: 100%;
+      padding: 14px 16px;
+      background: transparent;
+      border: none;
+      border-radius: 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sidebar-menu button .icon {
+      font-size: 20px;
+      /* Baris ini penting untuk SVG */
+      stroke: currentColor; 
+      transition: all 0.2s ease-in-out;
+    }
+
+    .sidebar-menu button:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .sidebar-menu button.active {
+      background: linear-gradient(135deg, #0B63D6, #00D27A);
+      color: white;
+      box-shadow: 0 4px 12px rgba(11, 99, 214, 0.3);
+    }
+    .sidebar-menu button.active .icon {
+      stroke-width: 2.5; /* Membuat ikon aktif sedikit lebih tebal */
+    }
+
+    .dashboard-content {
+      flex: 1;
+      padding: 32px;
+      overflow-y: auto;
+      background: var(--bg-primary);
+    }
+    
+    /* ANIMASI TRANSI SUPER MEWAH */
+    .content-fade-in {
+      animation: contentFadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    @keyframes contentFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .content-header {
+      margin-bottom: 32px;
+    }
+
+    .content-header h1 {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .content-header p {
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    /* ... (CSS .stats-grid, .stat-card, .card, dll tetap sama) ... */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 2px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .stat-card-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #0B63D6, #00D27A);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .stat-card-value {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .stat-card-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      border: 2px solid var(--border-color);
+      margin-bottom: 24px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .card-header h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-item {
+      padding: 20px;
+      background: var(--bg-tertiary);
+      border-radius: 16px;
+      border: 2px solid var(--border-color);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature-item:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-item-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #0B63D6, #00D27A);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .feature-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .feature-item p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* CSS BENTO GRID (SUPER MODERN) */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(150px, auto);
+      gap: 20px;
+    }
+    .bento-box {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 2px solid var(--border-color);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .bento-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-blue);
+    }
+    .bento-box h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 12px;
+    }
+    .bento-box p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      flex-grow: 1; /* Mendorong konten ke bawah jika ada */
+    }
+    .bento-icon {
+      font-size: 24px;
+      display: block;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      background: var(--bg-tertiary);
+      border-radius: 12px;
+    }
+    .bento-list {
+      list-style: none;
+      margin-top: 12px;
+      padding-left: 0;
+    }
+    .bento-list li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .bento-value {
+      font-size: 28px;
+      font-weight: 800;
+  S     color: var(--text-primary);
+      margin-top: 8px;
+    }
+    /* Ukuran Grid */
+    .box-1x1 { grid-column: span 1; grid-row: span 1; }
+    .box-2x1 { grid-column: span 2; grid-row: span 1; }
+    .box-1x2 { grid-column: span 1; grid-row: span 2; }
+    .box-2x2 { grid-column: span 2; grid-row: span 2; }
+    .box-3x1 { grid-column: span 3; grid-row: span 1; }
+    /* Responsif untuk Bento */
+    @media (max-width: 900px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+      .box-2x1, .box-3x1 { grid-column: span 2; }
+      .box-2x2 { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .box-1x1, .box-2x1, .box-1x2, .box-2x2, .box-3x1 { grid-column: span 1; }
+    }
+    /* AKHIR CSS BENTO */
+
+    /* ... (CSS Table, Badge, dll tetap sama) ... */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th {
+      background: var(--bg-tertiary);
+      padding: 16px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+  S     border-bottom: 2px solid var(--border-color);
+    }
+
+    table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    table tr:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-success {
+      background: rgba(0, 210, 122, 0.1);
+      color: var(--accent-green);
+    }
+
+    .badge-warning {
+      background: rgba(255, 215, 0, 0.1);
+      color: #FFA500;
+    }
+
+    .badge-danger {
+      background: rgba(255, 71, 87, 0.1);
+      color: var(--accent-red);
+    }
+
+    .badge-info {
+      background: rgba(11, 99, 214, 0.1);
+      color: var(--accent-blue);
+    }
+    
+    /* ... (CSS Theme Toggle, Toast, Modal, Responsive, dll tetap sama) ... */
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0B63D6, #00D27A);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(11, 99, 214, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(11, 99, 214, 0.5);
+    }
+    .theme-toggle svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+  S   }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: var(--card-bg);
+      color: var(--text-primary);
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      border: 2px solid var(--border-color);
+      z-index: 2500; /* Paling atas */
+      font-weight: 600;
+      font-size: 14px;
+      opacity: 0;
+      transform: translateX(400px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      max-width: 400px;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .toast.success {
+      border-color: var(--accent-green);
+    }
+    .toast.error {
+      border-color: var(--accent-red);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2200; /* Di atas Login */
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: var(--card-bg);
+      border-radius: 24px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90%;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      border: 2px solid var(--border-color);
+    }
+    .modal-header {
+      padding: 24px;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h2 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text-primary);
+    }
+    .modal-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+    }
+    .modal-close:hover {
+      background: var(--border-color);
+      transform: rotate(90deg);
+    }
+    .modal-body {
+      padding: 24px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .landing-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .landing-content {
+        text-align: center;
+        order: 2;
+      }
+      .login-card {
+        order: 1;
+        margin: 0 auto;
+      }
+      .dashboard-sidebar {
+        width: 240px;
+      }
+      .public-header {
+        padding: 16px 20px;
+      }
+      .public-nav {
+        display: none; /* Sembunyikan nav di mobile, ganti dgn menu burger jika perlu */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .landing-content h1 {
+        font-size: 36px;
+      }
+      .landing-stats {
+        grid-template-columns: 1fr;
+      }
+      .login-card {
+        padding: 32px 24px;
+      }
+      .dashboard-sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        bottom: 0;
+        z-index: 200;
+        transition: left 0.3s ease;
+        height: 100%; /* Pastikan tinggi penuh */
+      }
+      .dashboard-sidebar.active {
+        left: 0;
+      }
+      .dashboard-content {
+        padding: 20px;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ... (CSS Spinner, Progress Bar, dll tetap sama) ... */
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0B63D6, #00D27A);
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+    
+    /* ... (CSS Quiz, Notes, Calendar, dll tetap sama) ... */
+    .notes-editor {
+      min-height: 200px;
+      padding: 20px;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-primary);
+      outline: none;
+      resize: vertical;
+      width: 100%; /* Ditambahkan agar rapi */
+    }
+    .quiz-option {
+      padding: 16px 20px;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    .quiz-option:hover {
+      border-color: var(--accent-blue);
+      background: rgba(11, 99, 214, 0.05);
+      transform: translateX(8px);
+    }
+    .quiz-option.selected {
+      border-color: var(--accent-blue);
+      background: rgba(11, 99, 214, 0.1);
+    }
+    .quiz-option.correct {
+      border-color: var(--accent-green);
+      background: rgba(0, 210, 122, 0.1);
+    }
+    .quiz-option.wrong {
+      border-color: var(--accent-red);
+      background: rgba(255, 71, 87, 0.1);
+    }
+    .achievement {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: var(--bg-tertiary);
+      border-radius: 12px;
+      border: 2px solid var(--border-color);
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .achievement:hover {
+      transform: translateX(8px);
+      border-color: var(--accent-gold);
+    }
+    .achievement-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .achievement-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .achievement-info p {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+</head>
+<body>
+
+        <div class="public-wrapper" id="publicWebsite">
+    <header class="public-header">
+      <div class="public-logo">
+        SMA Cerdas Digital
+      </div>
+      <nav class="public-nav" id="publicNav">
+        <button data-page="beranda" class="active" onclick="loadPublicPage('beranda', this)">Beranda</button>
+        <button data-page="berita" onclick="loadPublicPage('berita', this)">Berita</button>
+        <button data-page="kegiatan" onclick="loadPublicPage('kegiatan', this)">Kegiatan</button>
+        <button data-page="lokasi" onclick="loadPublicPage('lokasi', this)">Lokasi</button>
+        <button data-page="kontak" onclick="loadPublicPage('kontak', this)">Kontak</button>
+      </nav>
+      <button class="btn-portal" id="portalBtn">
+        🔐 Masuk Portal
+      </button>
+    </header>
+
+    <main class="public-main" id="publicContent">
+          </main>
+
+    <footer class="public-footer">
+      <p>© 2025 SMA Cerdas Digital. Dirancang dengan visi premium.</p>
+      <div class="social-links">
+        <span>📷</span> <span>▶️</span> <span>📘</span>
+      </div>
+    </footer>
+  </div>
+
+
+        <div class="landing-page hidden" id="landingPage">
+    <div class="landing-container">
+      <div class="landing-content">
+        <h1>Ekosistem <span class="gradient-text">Pintar</span><br> Generasi Digital</h1>
+        <p>Platform pendidikan digital premium dengan teknologi terdepan untuk pengalaman belajar yang maksimal.</p>
+        <div class="landing-stats">
+          <div class="landing-stat">
+            <div class="landing-stat-value">1,200+</div>
+            <div class="landing-stat-label">Siswa Aktif</div>
+          </div>
+          <div class="landing-stat">
+            <div class="landing-stat-value">50+</div>
+            <div class="landing-stat-label">Guru Profesional</div>
+          </div>
+          <div class="landing-stat">
+            <div class="landing-stat-value">98%</div>
+            <div class="landing-stat-label">Kepuasan</div>
+          </div>
+        </div>
+      </div>
+      <div class="login-card">
+        <div class="login-header">
+          <div class="login-logo">
+            🎓 <span class="premium-badge">PRO</span>
+          </div>
+          <h2>Portal Premium</h2>
+          <p>Masuk ke akun Anda</p>
+        </div>
+        <div class="role-tabs">
+          <button class="role-tab active" data-role="siswa">👨‍🎓 Siswa</button>
+          <button class="role-tab" data-role="guru">👨‍🏫 Guru</button>
+          <button class="role-tab" data-role="ortu">👨‍👩‍👧 Orang Tua</button>
+        </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username" id="usernameLabel">NIS / Username</label>
+            <input type="text" id="username" placeholder="Masukkan NIS atau username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Masukkan password" required>
+          </div>
+          <button type="submit" class="btn btn-primary" id="loginBtn">
+            <span id="loginBtnText">🔐 Masuk Portal</span>
+          </button>
+                    <button type="button" class="btn btn-cancel" id="cancelLoginBtn">
+            <span>Kembali ke Website</span>
+          </button>
+        </form>
+        <div class="demo-info">
+          <h4>📝 Demo Login</h4>
+          <p id="demoCredentials"><strong>Siswa:</strong> 23041080073 / siswa123<br><strong>Nama:</strong> KELFIN ARSA ANDIKA</p>
+A       </div>
+      </div>
+    </div>
+  </div>
+
+        <div class="dashboard hidden" id="dashboard">
+    <div class="dashboard-header">
+      <div class="dashboard-logo">
+        <div class="dashboard-logo-icon">🎓</div>
+        <span>SMA Cerdas Digital</span>
+      </div>
+      <div class="dashboard-user">
+        <div class="user-info">
+          <div class="user-name" id="userName">Loading...</div>
+          <div class="user-role" id="userRole">Loading...</div>
+        </div>
+        <button class="btn-logout" id="logoutBtn">Keluar</button>
+      </div>
+    </div>
+    <div class="dashboard-container">
+      <aside class="dashboard-sidebar" id="sidebar">
+        <ul class="sidebar-menu" id="sidebarMenu">
+                  </ul>
+      </aside>
+      <main class="dashboard-content" id="dashboardContent">
+              </main>
+    </div>
+  </div>
+
+    <div class="modal" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Modal</h2>
+        <button class="modal-close" id="modalClose">×</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+              </div>
+    </div>
+  </div>
+  
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <svg id="themeIcon" viewbox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+  </button>
+  <div class="toast" id="toast"></div>
+
+
+            <script>
+    // ========================================
+    // KONFIGURASI SDK (Biarkan)
+    // ========================================
+    const defaultConfig = { app_name: "SMA Cerdas Digital" };
+    async function onConfigChange(config) {}
+    function mapToCapabilities(config) { return { recolorables: [], borderables: [], fontEditable: undefined, fontSizeable: undefined }; }
+    function mapToEditPanelValues(config) { return new Map([["app_name", config.app_name || defaultConfig.app_name]]); }
+    if (window.elementSdk) { window.elementSdk.init({ defaultConfig, onConfigChange, mapToCapabilities, mapToEditPanelValues }); }
+
+    // ========================================
+    // DATABASE FIKSI (Tetap sama)
+    // ========================================
+    const users = {
+      siswa: {
+        '23041080072': { password: 'siswa123', nama: 'SAKINA ANANDA', kelas: 'XI IPA 2', xp: 2450, level: 12 },
+        '23041080073': { password: 'siswa123', nama: 'KELFIN ARSA ANDIKA', kelas: 'XI IPA 2', xp: 3200, level: 15 },
+        '23041080074': { password: 'siswa123', nama: 'ZIANUL ULYA AL AZIZAH', kelas: 'XI IPA 2', xp: 2890, level: 14 },
+        '23041080075': { password: 'siswa123', nama: 'Yusrika Amalia', kelas: 'XI IPA 2', xp: 2100, level: 11 },
+        '23041080077': { password: 'siswa123', nama: 'NANDINI AYU SALSYABILA', kelas: 'XI IPA 2', xp: 2650, level: 13 },
+        '23041080078': { password: 'siswa123', nama: 'Muthia Aisyah', kelas: 'XI IPA 2', xp: 1980, level: 10 },
+        '23041080079': { password: 'siswa123', nama: 'MASAYU NURAINI', kelas: 'XI IPA 2', xp: 2340, level: 12 },
+        '23041080080': { password: 'siswa123', nama: 'MUHAMMAD SHOLIHIN', kelas: 'XI IPA 2', xp: 2780, level: 13 },
+        '23041080081': { password: 'siswa123', nama: 'CAHYADI PRATAM', kelas: 'XI IPA 2', xp: 2560, level: 12 },
+        '23041080082': { password: 'siswa123', nama: 'JUWITA MAHARANI', kelas: 'XI IPA 2', xp: 3100, level: 15 },
+        '23041080083': { password: 'siswa123', nama: 'Ika nurfajriah rifany', kelas: 'XI IPA 2', xp: 2420, level: 12 },
+        '23041080084': { password: 'siswa123', nama: 'JESSIKA AYU IMELDA', kelas: 'XI IPA 2', xp: 2890, level: 14 }
+      },
+      guru: {
+        'ade.akhmad': { password: 'guru123', nama: 'ADE AKHMAD SAPUTRA, S.Hum., M.Pd.', mapel: 'Bahasa Indonesia', nip: '198505152010011001' }
+      },
+      ortu: {
+        'firdaus': { password: 'ortu123', nama: 'FIRDAUS', anak: 'KELFIN ARSA ANDIKA', nis_anak: '23041080073', kelas: 'XI IPA 2' }
+      }
+    };
+
+    // Current user session
+    let currentUser = null;
+    let currentRole = null;
+
+    // ========================================
+    // MANAJEMEN TAMPILAN UTAMA (BARU)
+    // ========================================
+    const publicWebsiteEl = document.getElementById('publicWebsite');
+    const landingPageEl = document.getElementById('landingPage');
+    const dashboardEl = document.getElementById('dashboard');
+    const portalBtn = document.getElementById('portalBtn');
+
+    function showPublicWebsite() {
+      publicWebsiteEl.classList.remove('hidden');
+      landingPageEl.classList.add('hidden');
+      dashboardEl.classList.add('hidden');
+      document.body.style.overflow = ''; // Kembalikan scroll
+    }
+
+    function showLoginPage() {
+      publicWebsiteEl.classList.add('hidden');
+      landingPageEl.classList.remove('hidden');
+      dashboardEl.classList.add('hidden');
+      document.body.style.overflow = 'hidden'; // Hilangkan scroll
+    }
+
+    function showDashboard() {
+      publicWebsiteEl.classList.add('hidden');
+      landingPageEl.classList.add('hidden');
+      dashboardEl.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Hilangkan scroll
+      initDashboard();
+    }
+
+    // ========================================
+    // MANAJEMEN TEMA (Tetap sama)
+    // ========================================
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+      showToast(`✨ Tema ${newTheme === 'dark' ? 'Gelap' : 'Terang'} diaktifkan`, 'success');
+    });
+
+    function updateThemeIcon(theme) {
+      if (theme === 'dark') {
+        themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+      } else {
+        themeIcon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
+      }
+    }
+
+    // ========================================
+    // MANAJEMEN TOAST & MODAL (Tetap sama)
+    // ========================================
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = `toast ${type}`;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+
+    function openModal(title, content) {
+      modalTitle.textContent = title;
+      modalBody.innerHTML = content;
+      modal.classList.add('active');
+      // document.body.style.overflow = 'hidden'; // Dihapus agar tidak konflik
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      // document.body.style.overflow = ''; // Dihapus agar tidak konflik
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // ========================================
+    // SISTEM LOGIN (REMASTERED)
+    // ========================================
+    const roleTabs = document.querySelectorAll('.role-tab');
+    const loginForm = document.getElementById('loginForm');
+    const usernameLabel = document.getElementById('usernameLabel');
+    const usernameInput = document.getElementById('username');
+    const demoCredentials = document.getElementById('demoCredentials');
+    const cancelLoginBtn = document.getElementById('cancelLoginBtn');
+    let selectedRole = 'siswa';
+
+    roleTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        roleTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        selectedRole = tab.dataset.role;
+        
+        if (selectedRole === 'siswa') {
+          usernameLabel.textContent = 'NIS';
+          usernameInput.placeholder = 'Masukkan NIS';
+          demoCredentials.innerHTML = '<strong>Siswa:</strong> 23041080073 / siswa123<br><strong>Nama:</strong> KELFIN ARSA ANDIKA';
+        } else if (selectedRole === 'guru') {
+          usernameLabel.textContent = 'Username';
+          usernameInput.placeholder = 'Masukkan username';
+          demoCredentials.innerHTML = '<strong>Guru:</strong> ade.akhmad / guru123<br><strong>Nama:</strong> ADE AKHMAD SAPUTRA, S.Hum., M.Pd.';
+        } else {
+          usernameLabel.textContent = 'Username';
+          usernameInput.placeholder = 'Masukkan username';
+          demoCredentials.innerHTML = '<strong>Orang Tua:</strong> firdaus / ortu123<br><strong>Nama:</strong> FIRDAUS';
+        }
+      });
+    });
+
+    // Form Login Submit
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const loginBtn = document.getElementById('loginBtn');
+      const loginBtnText = document.getElementById('loginBtnText');
+      
+      loginBtn.disabled = true;
+      loginBtnText.innerHTML = '<span class="spinner"></span>';
+      
+      setTimeout(() => {
+        const user = users[selectedRole][username];
+        
+        if (user && user.password === password) {
+          currentUser = { username, ...user };
+          currentRole = selectedRole;
+          
+          // Save session
+          localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          localStorage.setItem('currentRole', currentRole);
+          
+          showToast(`✅ Selamat datang, ${user.nama}!`, 'success');
+          
+          setTimeout(() => {
+            showDashboard(); // Pindah ke Dashboard
+            loginBtn.disabled = false;
+            loginBtnText.textContent = '🔐 Masuk Portal';
+          }, 1000);
+        } else {
+          showToast('❌ Username atau password salah!', 'error');
+          loginBtn.disabled = false;
+          loginBtnText.textContent = '🔐 Masuk Portal';
+        }
+      }, 1500);
+    });
+
+    // Tombol Batal Login (BARU)
+    cancelLoginBtn.addEventListener('click', () => {
+      showPublicWebsite();
+    });
+
+    // ========================================
+    // LOGIKA LOGOUT (REMASTERED)
+    // ========================================
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('currentRole');
+      
+      showToast('👋 Berhasil keluar. Sampai jumpa!', 'success');
+      
+      setTimeout(() => {
+        currentUser = null;
+        currentRole = null;
+        
+        showPublicWebsite(); // Kembali ke Website Publik
+        
+        // Reset tombol portal
+        portalBtn.textContent = '🔐 Masuk Portal';
+        portalBtn.onclick = showLoginPage;
+        
+        document.getElementById('loginForm').reset();
+      }, 1000);
+    });
+
+
+    // ========================================
+    // LOGIKA INISIALISASI DASHBOARD
+    // ========================================
+    function initDashboard() {
+      document.getElementById('userName').textContent = currentUser.nama;
+      document.getElementById('userRole').textContent = getRoleLabel(currentRole);
+      loadSidebarMenu();
+      loadDashboardContent('beranda');
+    }
+
+    function getRoleLabel(role) {
+      const labels = {
+        siswa: '👨‍🎓 Siswa',
+        guru: '👨‍🏫 Guru',
+        ortu: '👨‍👩‍👧 Orang Tua'
+      };
+      return labels[role] || 'User';
+    }
+
+    // ========================================
+    // SIDEBAR MENU (REMASTERED DENGAN SVG)
+    // ========================================
+    function loadSidebarMenu() {
+      const sidebarMenu = document.getElementById('sidebarMenu');
+      
+      // --- IKON SVG PREMIUM ---
+      const ICONS = {
+        beranda: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+        absensi: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>',
+        materi: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>',
+        tugas: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect height="4" rx="1" ry="1" width="8" x="8" y="2"/></svg>',
+        nilai: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20V16"/></svg>',
+        gamifikasi: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m13.8-2.3 2.6 4.2c.1.2.3.4.5.5L21.1 4c.6.2.8 1 .4 1.4l-3.2 2.7c-.2.1-.3.4-.3.6l.6 4.3c.1.6-.4 1.1-1 1l-4-1.2c-.2 0-.4 0-.6-.1l-3.8 2.2c-.5.3-1.1 0-1.2-.6l-.9-4.1c0-.2 0-.4-.1-.6l-2.8-3.1C.1 5.4.3 4.6 1 4.4l4.2-.7c.2 0 .4-.2.5-.4l2.1-4.3C8.1-.1 9-.1 9.2.3l2.4 4.1c.1.2.3.4.5.5l3.5.7c.6.1.8.9.4 1.3l-2.5 2.7c-.2.1-.3.4-.3.6l.6 4.3c.1.6-.4 1.1-1 1l-3.5-2.1c-.2 0-.4-.1-.6-.1l-3.3 2.5c-.5.3-1.1 0-1.2-.6l-1.1-4.1c0-.2-.1-.4-.2-.6l-2.3-3.1C.2 6.4.4 5.6 1 5.4l4.2-.7c.2 0 .4-.2.5-.4L7.8.3c.3-.5 1.1-.5 1.4 0l2.4 4.1c.1.2.3.4.5.5l3.5.7c.6.1.8.9.4 1.3l-2.5 2.7c-.2.1-.3.4-.3.6l.6 4.3c.1.6-.4 1.1-1 1l-3.5-2.1c-.2 0-.4-.1-.6-.1l-3.3 2.5c-.5.3-1.1 0-1.2-.6l-1.1-4.1c0-.2-.1-.4-.2-.6L.9 6.8C.5 6.4.7 5.6 1.3 5.4l4.2-.7c.2 0 .4-.2.5-.4L8.1.3c.3-.5 1.1-.5 1.4 0l2.4 4.1c.1.2.3.4.5.5Z"/></svg>',
+        quiz: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 3.9C15 .7 13.9.7 13.7 3.9L13.4 6c-.3.2-.6.3-.9.5l-2.3-.9c-2.1-.8-4.2.8-3.4 2.9l1.4 2.4c.1.3.1.6 0 .9l-1.4 2.4c-.8 2.1 1.3 3.8 3.4 2.9l2.3-.9c.3.2.6.3.9.5l.3 2.1c.2 2.1 1.3 2.1 1.5 0l.3-2.1c.3-.2.6-.3.9-.5l2.3.9c2.1.8 4.2-.8 3.4-2.9l-1.4-2.4c-.1-.3-.1-.6 0-.9l1.4-2.4c.8-2.1-1.3-3.8-3.4-2.9l-2.3.9c-.3-.2-.6-.3-.9-.5Z"/><circle cx="12" cy="12" r="3"/></svg>',
+        forum: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+        library: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+        kalender: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>',
+        profil: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+        kelas: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8"/><path d="M10 12h10"/><path d="m16 8 4 4-4 4"/><path d="M6 12H4"/><path d="M6 8H4"/><path d="M6 16H4"/></svg>',
+        banksoal: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M10.4 12.6a2 2 0 1 1 3 3L11 21l-3 1 1-3Z"/><line x1="12" x2="13.4" y1="15" y2="16.4"/></svg>',
+        remedial: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 13 2.5-2.5 2.5 2.5"/><path d="m12 18.5 2.5-2.5 2.5 2.5"/><path d="M12 8c.2-2.8 1.4-5 3-5 1.6 0 2.8 2.2 3 5"/><path d="M12 3v18"/><path d="M7 10h1.5"/><path d="M7 14h1.5"/><path d("M7 18h1.5"/><path d="M3 3c2.8 0 5 2.2 5 5v0c0 2.8-2.2 5-5 5"/></svg>',
+        komunikasi: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/></svg>',
+        monitoring: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.06 12.06c.01.01 0 .01 0 0L2 12l.06-.06a9.5 9.5 0 0 1 19.88 0l.06.06-2.06 2.06-.06.06a5.5 5.5 0 0 1-7.88 0l-.06-.06-2.06-2.06Z"/><path d="M5 15.5c0-2.8 2.2-5 5-5"/><path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>',
+        galeri: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>',
+        bayar: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>',
+      };
+
+      // --- STRUKTUR MENU BARU (SESUAI DAFTAR ANDA) ---
+      const menus = {
+        siswa: [
+          { id: 'beranda', icon: ICONS.beranda, label: 'Beranda' },
+          { id: 'absensi', icon: ICONS.absensi, label: 'Absensi' },
+          { id: 'materi', icon: ICONS.materi, label: 'Materi' },
+          { id: 'tugas', icon: ICONS.tugas, label: 'Tugas' },
+          { id: 'nilai', icon: ICONS.nilai, label: 'Nilai' },
+          { id: 'gamifikasi', icon: ICONS.gamifikasi, label: 'Gamifikasi' },
+          { id: 'quiz', icon: ICONS.quiz, label: 'Quiz' },
+          { id: 'forum', icon: ICONS.forum, label: 'Forum' },
+          { id: 'library', icon: ICONS.library, label: 'Perpustakaan' },
+          { id: 'kalender', icon: ICONS.kalender, label: 'Kalender Akademik' },
+          { id: 'profil', icon: ICONS.profil, label: 'Profil' }
+        ],
+        guru: [
+          { id: 'beranda', icon: ICONS.beranda, label: 'Beranda' },
+          { id: 'kelas', icon: ICONS.kelas, label: 'Kelas Saya' },
+          { id: 'absensi', icon: ICONS.absensi, label: 'Absensi' },
+          { id: 'materi', icon: ICONS.materi, label: 'Materi' },
+          { id: 'tugas', icon: ICONS.tugas, label: 'Tugas' },
+          { id: 'bank-soal', icon: ICONS.banksoal, label: 'Bank Soal & Quiz Builder' },
+          { id: 'nilai', icon: ICONS.nilai, label: 'Penilaian' },
+          { id: 'remedial', icon: ICONS.remedial, label: 'Remedial dan Pengayaan' },
+          { id: 'komunikasi-wali', icon: ICONS.komunikasi, label: 'Komunikasi Wali Murid' },
+          { id: 'kalender', icon: ICONS.kalender, label: 'Kalender Akademik' },
+          { id: 'profil', icon: ICONS.profil, label: 'Profil' }
+        ],
+        ortu: [
+          { id: 'beranda', icon: ICONS.beranda, label: 'Beranda' },
+          { id: 'monitoring', icon: ICONS.monitoring, label: 'Monitoring' },
+          { id: 'nilai', icon: ICONS.nilai, label: 'Nilai Anak' },
+          { id: 'absensi', icon: ICONS.absensi, label: 'Absensi Anak' },
+          { id: 'galeri', icon: ICONS.galeri, label: 'Galeri Kegiatan Anak' },
+          { id: 'pembayaran', icon: ICONS.bayar, label: 'Pembayaran SPP' },
+          { id: 'komunikasi-sekolah', icon: ICONS.forum, label: 'Komunikasi Sekolah' },
+          { id: 'kalender', icon: ICONS.kalender, label: 'Kalender Akademik' },
+          { id: 'profil', icon: ICONS.profil, label: 'Profil' }
+        ]
+      };
+      
+      const menuItems = menus[currentRole] || [];
+      
+      sidebarMenu.innerHTML = menuItems.map(item => `
+        <li>
+          <button data-menu="${item.id}" class="${item.id === 'beranda' ? 'active' : ''}">
+            <span class="icon">${item.icon}</span>
+            <span>${item.label}</span>
+          </button>
+        </li>
+      `).join('');
+      
+      // Add event listeners
+      sidebarMenu.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          sidebarMenu.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          loadDashboardContent(btn.dataset.menu);
+        });
+      });
+    }
+
+    // ========================================
+    // PEMUAT KONTEN DASHBOARD (REMASTERED)
+    // ========================================
+    function loadDashboardContent(menuId) {
+      const content = document.getElementById('dashboardContent');
+      
+      // --- CONTENT MAP BARU (SESUAI FITUR ANDA) ---
+      const contentMap = {
+        siswa: {
+          beranda: getBerandaSiswa,
+          absensi: getAbsensiSiswa,
+          materi: getMateriSiswa, // Mengganti getELearningSiswa
+          tugas: getTugasSiswa, // Fungsi baru
+          nilai: getNilaiSiswa,
+          gamifikasi: getGamifikasiSiswa,
+          quiz: getQuizSiswa,
+          forum: getForumSiswa, // Fungsi baru
+          library: getPerpustakaanSiswa, // Fungsi baru
+          kalender: getKalenderSiswa,
+          profil: getProfilSiswa
+        },
+        guru: {
+          beranda: getBerandaGuru,
+          kelas: getKelasGuru,
+          absensi: getAbsensiGuru,
+          materi: getMateriGuru,
+          tugas: getTugasGuru,
+          'bank-soal': getBankSoalGuru, // Fungsi canggih
+          nilai: getNilaiGuru,
+          remedial: getRemedialGuru, // Fungsi canggih
+          'komunikasi-wali': getKomunikasiWaliGuru, // Fungsi baru
+          kalender: getKalenderGuru,
+          profil: getProfilGuru
+        },
+        ortu: {
+          beranda: getBerandaOrtu,
+          monitoring: getMonitoringOrtu,
+          nilai: getNilaiOrtu,
+          absensi: getAbsensiOrtu,
+          galeri: getGaleriOrtu, // Fungsi baru
+          pembayaran: getPembayaranOrtu, // Fungsi canggih
+          'komunikasi-sekolah': getKomunikasiOrtu,
+          kalender: getKalenderOrtu,
+          profil: getProfilOrtu
+        }
+      };
+      
+      // Fallback untuk fungsi yang belum dibuat
+      const fallbackFunction = () => `
+        <div class="content-header">
+          <h1>🚧 Fitur Sedang Dibangun</h1>
+          <p>Halaman untuk "${menuId}" sedang dalam pengembangan super canggih!</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Coming Soon</h2></div>
+          <div style="padding: 40px; text-align: center;">
+            <span style="font-size: 60px;">🚀</span>
+            <h3 style="margin-top: 16px;">Super Canggih, Super Modern</h3>
+          	<p>Fitur premium ini akan segera hadir.</p>
+          </div>
+        </div>
+      `;
+      
+      const finalContentFunction = contentMap[currentRole]?.[menuId] || fallbackFunction;
+      
+      content.innerHTML = finalContentFunction();
+      
+      // --- TAMBAHAN SUPER MEWAH (ANIMASI) ---
+      content.classList.remove('content-fade-in');
+      void content.offsetWidth; // Trik untuk memicu reflow (penting!)
+      content.classList.add('content-fade-in');
+      // --- AKHIR TAMBAHAN ---
+      
+      initContentInteractions(menuId);
+    }
+
+    // ========================================
+    // KONTEN SISWA (REMASTERED)
+    // ========================================
+
+    function getBerandaSiswa() {
+      return `
+        <div class="content-header">
+          <h1>Selamat Datang, ${currentUser.nama}! 👋</h1>
+          <p>Dashboard ringkasan aktivitas belajar Anda hari ini.</p>
+        </div>
+        <div class="bento-grid">
+          <div class="bento-box box-2x1" onclick="loadDashboardContent('tugas')">
+            <span class="bento-icon">📝</span>
+            <h4>Tugas Berikutnya</h4>
+            <p>Analisis Teks Bahasa Indonesia</p>
+            <span class="badge badge-warning" style="margin-top: 12px;">Deadline: 27 Des 2024</span>
+          </div>
+          <div class="bento-box box-1x1" onclick="loadDashboardContent('gamifikasi')">
+            <span class="bento-icon">⭐</span>
+            <h4>Level ${currentUser.level}</h4>
+            <p class="bento-value">${currentUser.xp} XP</p>
+            <div class="progress-bar" style="margin-top: 8px;">
+              <div class="progress-fill" style="width: ${(currentUser.xp % 500) / 5}%"></div>
+            </div>
+          </div>
+          <div class="bento-box box-1x1" onclick="loadDashboardContent('absensi')">
+            <span class="bento-icon">✅</span>
+            <h4>Absensi Hari Ini</h4>
+            <p class="bento-value" style="color: var(--accent-green);">HADIR</p>
+          </div>
+          <div class="bento-box box-2x2" onclick="loadDashboardContent('kalender')">
+            <span class="bento-icon">📅</span>
+            <h4>Kalender Akademik</h4>
+            <ul class="bento-list">
+              <li><strong>25 Des:</strong> UTS Matematika</li>
+              <li><strong>27 Des:</strong> Presentasi Kelompok</li>
+            	<li><strong>30 Des:</strong> Praktikum Fisika</li>
+            	<li><strong>02 Jan:</strong> Libur Tahun Baru</li>
+            </ul>
+          </div>
+          <div class="bento-box box-2x1" onclick="loadDashboardContent('nilai')">
+            <span class="bento-icon">📊</span>
+            <h4>Nilai Terbaru</h4>
+            <p>Quiz Fisika: <strong class="bento-value" style="font-size: 24px; color: var(--accent-blue);">85</strong></p>
+          </div>
+        </div>
+      `;
+    }
+
+    function getAbsensiSiswa() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📱 Absensi Online</h1>
+          <p>Scan QR Code atau gunakan GPS untuk absen</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Absen Hari Ini</h2>
+          </div>
+          <div style="text-align: center; padding: 40px;">
+            <div style="width: 200px; height: 200px; margin: 0 auto 24px; background: linear-gradient(135deg, #0B63D6, #00D27A); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 80px;">
+              📱
+            </div>
+            <h3 style="margin-bottom: 12px;">Scan QR Code</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">Arahkan kamera ke QR Code yang ditampilkan guru</p>
+            <button class="btn btn-primary" onclick="absenNow()">✅ Absen Sekarang</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function getMateriSiswa() {
+      // Menggantikan getELearningSiswa
+      return `
+        <div class="content-header">
+          <h1>📚 Materi Pembelajaran</h1>
+          <p>Akses semua materi pelajaran Anda di satu tempat.</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Mata Pelajaran</h2>
+          </div>
+          <div class="card-grid">
+            <div class="feature-item" onclick="openMateri('Matematika')">
+              <div class="feature-item-icon">🔢</div>
+              <h3>Matematika</h3>
+              <p>12 Materi • 5 Tugas</p>
+            </div>
+            <div class="feature-item" onclick="openMateri('Fisika')">
+              <div class="feature-item-icon">⚛️</div>
+            	<h3>Fisika</h3>
+            	<p>10 Materi • 3 Tugas</p>
+          	</div>
+          	<div class="feature-item" onclick="openMateri('Bahasa Indonesia')">
+          	<div class="feature-item-icon">📖</div>
+          	<h3>Bahasa Indonesia</h3>
+          	<p>15 Materi • 6 Tugas</p>
+          	</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function getTugasSiswa() {
+      return `
+        <div class="content-header"><h1>📝 Daftar Tugas</h1><p>Semua tugas Anda ada di sini. Jangan sampai terlewat!</p></div>
+        <div class="card">
+        	<div class="card-header"><h2>Tugas Mendatang</h2></div>
+        	<div class="table-container">
+        	<table>
+        	<thead><tr><th>Mata Pelajaran</th><th>Judul Tugas</th><th>Deadline</th><th>Status</th><th>Aksi</th></tr></thead>
+        	<tbody>
+        	<tr>
+        	<td>Bahasa Indonesia</td>
+        	<td>Analisis Teks</td>
+        	<td>27 Des 2024</td>
+        	<td><span class="badge badge-warning">Pending</span></td>
+        	<td><button class="btn btn-primary" style="width: auto; padding: 8px 16px; font-size: 12px;" onclick="showToast('Membuka halaman upload...', 'success')">Upload</button></td>
+        	</tr>
+        	<tr>
+        	<td>Fisika</td>
+        	<td>Laporan Praktikum</td>
+        	<td>30 Des 2024</td>
+        	<td><span class="badge badge-success">Selesai</span></td>
+        	<td><button class="btn btn-primary" style="width: auto; padding: 8px 16px; font-size: 12px; background: var(--text-secondary);" disabled>Terkirim</button></td>
+        	</tr>
+        	</tbody>
+        	</table>
+        	</div>
+        </div>
+      `;
+    }
+
+    function getNilaiSiswa() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📊 Nilai & Rapor</h1>
+          <p>Pantau perkembangan akademik Anda</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Nilai Per Mata Pelajaran</h2>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead><tr><th>Mata Pelajaran</th><th>UH</th><th>UTS</th><th>UAS</th><th>Rata-rata</th><th>Grade</th></tr></thead>
+              <tbody>
+                <tr><td>Matematika</td><td>85</td><td>88</td><td>90</td><td><strong>87.7</strong></td><td><span class="badge badge-success">A</span></td></tr>
+                <tr><td>Fisika</td><td>82</td><td>85</td><td>88</td><td><strong>85.0</strong></td><td><span class="badge badge-success">A</span></td></tr>
+                <tr><td>Bahasa Indonesia</td><td>90</td><td>92</td><td>95</td><td><strong>92.3</strong></td><td><span class="badge badge-success">A</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getGamifikasiSiswa() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>🎮 Gamifikasi</h1>
+          <p>Level up dan raih badges!</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-header"><div class="stat-card-icon">⭐</div><span class="xp-badge">Level ${currentUser.level}</span></div>
+            <div class="stat-card-value">${currentUser.xp}</div>
+            <div class="stat-card-label">Total XP</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: ${(currentUser.xp % 500) / 5}%"></div></div>
+          </div>
+          <div class="stat-card"><div class="stat-card-icon">🏆</div><div class="stat-card-value">12</div><div class="stat-card-label">Total Badges</div></div>
+          <div class="stat-card"><div class="stat-card-icon">📊</div><div class="stat-card-value">2</div><div class="stat-card-label">Peringkat Kelas</div></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>🏆 Leaderboard Kelas</h2></div>
+          <div class="table-container">
+            <table>
+            	<thead><tr><th>Peringkat</th><th>Nama</th><th>Level</th><th>XP</th></tr></thead>
+            	<tbody>
+            	<tr style="background: rgba(255, 215, 0, 0.1);"><td><strong>🥇 1</strong></td><td><strong>JUWITA MAHARANI</strong></td><td>15</td><td>3100</td></tr>
+            	<tr style="background: rgba(11, 99, 214, 0.05);"><td><strong>🥈 2</strong></td><td><strong>${currentUser.nama}</strong></td><td>${currentUser.level}</td><td>${currentUser.xp}</td></tr>
+            	<tr><td><strong>🥉 3</strong></td><td>ZIANUL ULYA AL AZIZAH</td><td>14</td><td>2890</td></tr>
+            	</tbody>
+          	</table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getQuizSiswa() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📝 Interactive Quiz</h1>
+          <p>Uji pemahaman Anda dengan quiz interaktif</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Quiz Tersedia</h2></div>
+          <div class="card-grid">
+            <div class="feature-item" onclick="startQuizReal('Matematika')">
+              <div class="feature-item-icon">🔢</div>
+              <h3>Quiz Matematika</h3>
+              <p>10 Soal • 15 Menit</p>
+            	<span class="badge badge-info" style="margin-top: 8px;">Belum Dikerjakan</span>
+          	</div>
+          	<div class="feature-item" onclick="viewQuizResult('Fisika', 85)">
+          	<div class="feature-item-icon">⚛️</div>
+          	<h3>Quiz Fisika</h3>
+          	<p>15 Soal • 20 Menit</p>
+          	<span class="badge badge-success" style="margin-top: 8px;">Selesai - 85</span>
+          	</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function getForumSiswa() {
+      return `
+        <div class="content-header"><h1>💬 Forum Diskusi</h1><p>Diskusi dengan teman dan guru secara profesional.</p></div>
+        <div class="card">
+        <div class="card-header"><h2>Topik Populer</h2></div>
+        <div style="padding: 20px;">
+          <div class="achievement"><div class="achievement-icon" style="background: var(--accent-blue);">🔥</div>
+          <div class="achievement-info"><h4>Tugas Integral susah banget! (3 balasan)</h4><p>Oleh: JUWITA MAHARANI</p></div></div>
+          <div class="achievement"><div class="achievement-icon" style="background: var(--accent-green);">💡</div>
+          <div class="achievement-info"><h4>Tips Lulus UTS Fisika (5 balasan)</h4><p>Oleh: ${currentUser.nama}</p></div></div>
+        </div></div>
+      `;
+    }
+
+    function getPerpustakaanSiswa() {
+      return `
+        <div class="content-header"><h1>📖 Perpustakaan Digital (Premium)</h1><p>Akses ribuan e-book, jurnal, dan materi premium.</p></div>
+        <div class="card">
+        <div class="card-header"><h2>Rekomendasi Untukmu</h2></div>
+        <div class="card-grid" style="padding: 20px;">
+          <div class="feature-item"><div class="feature-item-icon">📚</div><h3>Atomic Habits</h3><p>E-book tersedia • <span style="color: var(--accent-blue); cursor: pointer;" onclick="showToast('Meminjam e-book...', 'success')">Pinjam</span></p></div>
+          <div class="feature-item"><div class="feature-item-icon">📚</div><h3>Filosofi Teras</h3><p>E-book tersedia • <span style="color: var(--accent-blue); cursor: pointer;" onclick="showToast('Meminjam e-book...', 'success')">Pinjam</span></p></div>
+          <div class="feature-item"><div class="feature-item-icon">📚</div><h3>Sapiens</h3><p>E-book tersedia • <span style="color: var(--accent-blue); cursor: pointer;" onclick="showToast('Meminjam e-book...', 'success')">Pinjam</span></p></div>
+        </div></div>
+      `;
+    }
+
+    function getKalenderSiswa() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📅 Kalender Akademik</h1>
+          <p>Jadwal kegiatan dan event sekolah</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Event Mendatang</h2></div>
+          <div class="table-container">
+            <table>
+            	<thead><tr><th>Tanggal</th><th>Event</th><th>Waktu</th><th>Lokasi</th></tr></thead>
+            	<tbody>
+            	<tr><td>25 Des 2024</td><td><strong>UTS Matematika</strong></td><td>08:00 - 10:00</td><td>Ruang 201</td></tr>
+            	<tr><td>27 Des 2024</td><td><strong>Presentasi Kelompok</strong></td><td>13:00 - 15:00</td><td>Lab Komputer</td></tr>
+            	</tbody>
+          	</table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getProfilSiswa() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>👤 Profil Saya</h1>
+          <p>Kelola informasi akun Anda</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Informasi Pribadi</h2></div>
+          <div style="padding: 20px; display: flex; gap: 32px; align-items: start;">
+          	<div style="width: 120px; height: 120px; background: linear-gradient(135deg, #0B63D6, #00D27A); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 60px; flex-shrink: 0;">👨‍🎓</div>
+          	<div style="flex: 1;">
+          	<h3 style="font-size: 24px; margin-bottom: 8px;">${currentUser.nama}</h3>
+          	<p style="color: var(--text-secondary); margin-bottom: 16px;">NIS: ${currentUser.username}</p>
+          	<div style="display: grid; gap: 16px;">
+          	<div><strong>Kelas:</strong> ${currentUser.kelas}</div>
+          	<div><strong>Level:</strong> ${currentUser.level}</div>
+          	<div><strong>Total XP:</strong> ${currentUser.xp}</div>
+          	</div>
+          	<button class="btn btn-primary" onclick="editProfile()" style="width: auto; padding: 12px 24px; margin-top: 24px;">✏️ Edit Profil</button>
+          	</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ========================================
+    // KONTEN GURU (REMASTERED)
+    // ========================================
+
+    function getBerandaGuru() {
+      return `
+        <div class="content-header">
+          <h1>Selamat Datang, ${currentUser.nama}! 👋</h1>
+          <p>Pusat kendali profesional untuk manajemen kelas Anda.</p>
+        </div>
+        <div class="bento-grid">
+          <div class="bento-box box-1x1" onclick="loadDashboardContent('kelas')">
+            <span class="bento-icon">🏫</span>
+            <h4>Kelas Diampu</h4>
+            <p class="bento-value">4 Kelas</p>
+          </div>
+          <div class="bento-box box-2x1" onclick="loadDashboardContent('tugas')">
+            <span class="bento-icon">📝</span>
+            <h4>Perlu Penilaian</h4>
+            <p>Analisis Teks (XI IPA 2): <strong style="color: var(--accent-red);">4/32 Belum Dinilai</strong></p>
+          </div>
+          <div class="bento-box box-1x2" onclick="loadDashboardContent('komunikasi-wali')">
+            <span class="bento-icon">💬</span>
+            <h4>Pesan Wali Murid</h4>
+            <ul class="bento-list">
+              <li><strong>FIRDAUS (Wali KELFIN):</strong> "Izin konfirmasi..." <span class="badge badge-danger">BARU</span></li>
+              <li><strong>Wali SAKINA:</strong> "Terima kasih infonya..."</li>
+            </ul>
+          </div>
+          <div class="bento-box box-2x1" onclick="loadDashboardContent('bank-soal')">
+            <span class="bento-icon">✨</span>
+            <h4>AI Quiz Builder</h4>
+            <p>Buat soal secara instan dengan teknologi AI canggih.</p>
+          </div>
+          <div class="bento-box box-2x1" onclick="loadDashboardContent('remedial')">
+            <span class="bento-icon">🚩</span>
+            <h4>Siswa Perlu Perhatian (AI)</h4>
+            <p>3 Siswa teridentifikasi AI butuh remedial (Nilai < 70).</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function getKelasGuru() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>🏫 Kelas Saya</h1>
+          <p>Kelola kelas yang Anda ampu</p>
+        </div>
+        <div class="card-grid">
+          <div class="feature-item" onclick="openKelas('XI IPA 1')"><div class="feature-item-icon">🏫</div><h3>XI IPA 1</h3><p>30 Siswa • Bahasa Indonesia</p></div>
+          <div class="feature-item" onclick="openKelas('XI IPA 2')"><div class="feature-item-icon">🏫</div><h3>XI IPA 2</h3><p>32 Siswa • Bahasa Indonesia</p></div>
+        	<div class="feature-item" onclick="openKelas('XI IPA 3')"><div class="feature-item-icon">🏫</div><h3>XI IPA 3</h3><p>28 Siswa • Bahasa Indonesia</p></div>
+        </div>
+      `;
+    }
+
+    function getAbsensiGuru() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📱 Absensi Kelas</h1>
+          <p>Kelola absensi siswa secara profesional</p>
+        </div>
+        <div class="card">
+          <div style="text-align: center; padding: 40px;">
+          	<div style="width: 200px; height: 200px; margin: 0 auto 24px; background: var(--bg-tertiary); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 80px;">
+          	<span id="qrCodeIcon">📱</span>
+          	</div>
+          	<h3 style="margin-bottom: 12px;">Generate QR Code Absensi</h3>
+          	<p style="color: var(--text-secondary); margin-bottom: 24px;">Buat QR Code unik untuk absensi kelas XI IPA 2</p>
+          	<button class="btn btn-primary" onclick="generateQR()">🔄 Generate QR Code</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function getMateriGuru() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📚 Materi Pembelajaran</h1>
+          <p>Kelola materi untuk siswa</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Materi Aktif</h2>
+            <button class="btn btn-primary" onclick="createMateri()" style="width: auto; padding: 12px 24px;">➕ Tambah Materi</button>
+          </div>
+          <div class="table-container">
+          	<table>
+          	<thead><tr><th>Judul Materi</th><th>Kelas</th><th>Tanggal Upload</th><th>Aksi</th></tr></thead>
+          	<tbody>
+          	<tr><td><strong>Teks Eksposisi</strong></td><td>XI IPA 1, 2</td><td>20 Des 2024</td><td><button class="btn btn-primary" style="width: auto; padding: 8px 16px; font-size: 12px;">Edit</button></td></tr>
+          	<tr><td><strong>Teks Argumentasi</strong></td><td>XI IPA 3, 4</td><td>18 Des 2024</td><td><button class="btn btn-primary" style="width: auto; padding: 8px 16px; font-size: 12px;">Edit</button></td></tr>
+          	</tbody>
+          	</table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getTugasGuru() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📝 Manajemen Tugas</h1>
+          <p>Kelola tugas dan penilaian</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Tugas Aktif</h2>
+            <button class="btn btn-primary" onclick="createTugas()" style="width: auto; padding: 12px 24px;">➕ Buat Tugas</button>
+          </div>
+          <div class="table-container">
+          	<table>
+          	<thead><tr><th>Judul Tugas</th><th>Kelas</th><th>Deadline</th><th>Terkumpul</th><th>Aksi</th></tr></thead>
+          	<tbody>
+          	<tr><td><strong>Analisis Teks</strong></td><td>XI IPA 2</td><td>27 Des 2024</td><td><span class="badge badge-warning">28/32</span></td><td><button class="btn btn-primary" style="width: auto; padding: 8px 16px; font-size: 12px;">Nilai</button></td></tr>
+          	<tr><td><strong>Essay Argumentasi</strong></td><td>XI IPA 1</td><td>25 Des 2024</td><td><span class="badge badge-success">30/30</span></td><td><button class="btn btn-primary" style="width: auto; padding: 8px 16px; font-size: 12px;">Lihat</button></td></tr>
+          	</tbody>
+          	</table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getBankSoalGuru() {
+      // (Fungsi Canggih BARU)
+      return `
+        <div class="content-header">
+          <h1>🗂️ Bank Soal & AI Quiz Builder</h1>
+          <p>Buat soal secara instan dengan teknologi AI canggih.</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>✨ AI Quiz Generator (PRO)</h2>
+          </div>
+          <div style="padding: 24px;">
+            <div class="form-group">
+              <label for="aiPrompt">Masukkan Perintah (Prompt) AI:</label>
+              <textarea id="aiPrompt" rows="4" class="notes-editor" placeholder="Contoh: 'Buatkan 5 soal pilihan ganda tentang Teks Eksposisi untuk kelas XI, tingkat kesulitan sedang, lengkap dengan kunci jawaban...'"></textarea>
+            </div>
+            <button class="btn btn-primary" style="margin-top: 16px;" onclick="generateAIFakeSoal()">
+              <span id="aiBtnText">🚀 Generate Soal</span>
+            </button>
+            <div id="aiResult" style="margin-top: 24px; display: none;">
+              <h4>Hasil Generate AI:</h4>
+              <div id="aiResultContent" style="margin-top: 12px; border: 2px solid var(--border-color); border-radius: 12px; padding: 16px; background: var(--bg-tertiary);"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function getNilaiGuru() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📊 Penilaian</h1>
+          <p>Input dan kelola nilai siswa</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Daftar Nilai XI IPA 2</h2></div>
+          <div class="table-container">
+          	<table>
+          	<thead><tr><th>NIS</th><th>Nama</th><th>UH</th><th>UTS</th><th>UAS</th><th>Rata-rata</th></tr></thead>
+          	<tbody>
+          	<tr><td>23041080073</td><td>KELFIN ARSA ANDIKA</td><td>90</td><td>92</td><td>95</td><td><strong>92.3</strong></td></tr>
+          	<tr><td>23041080082</td><td>JUWITA MAHARANI</td><td>88</td><td>90</td><td>93</td><td><strong>90.3</strong></td></tr>
+          	<tr><td>23041080074</td><td>ZIANUL ULYA AL AZIZAH</td><td>85</td><td>88</td><td>90</td><td><strong>87.7</strong></td></tr>
+          	</tbody>
+          	</table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getRemedialGuru() {
+      // (Fungsi Canggih BARU)
+      return `
+        <div class="content-header">
+          <h1>🚩 Remedial dan Pengayaan</h1>
+          <p>Sistem proaktif mengidentifikasi siswa yang perlu perhatian.</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Siswa Perlu Remedial (AI-Flagged)</h2>
+          </div>
+          <div class="table-container">
+            <table>
+            	<thead><tr><th>Nama Siswa</th><th>Kelas</th><th>Nilai Quiz Terakhir</th><th>Aksi</th></tr></thead>
+            	<tbody>
+            	<tr>
+            	<td>Muthia Aisyah</td>
+            	<td>XI IPA 2</td>
+            	<td><span class="badge badge-danger">65</span></td>
+            	<td><button class="btn btn-primary" style="width: auto; padding: 8px 16px; font-size: 12px;" onclick="showToast('Modul Remedial dikirim!', 'success')">Kirim Modul Remedial</button></td>
+            	</tr>
+          	<tr>
+          	<td>Yusrika Amalia</td>
+          	<td>XI IPA 2</td>
+          	<td><span class="badge badge-danger">55</span></td>
+          	<td><button class="btn btn-primary" style="width: auto; padding: 8px 16px; font-size: 12px;" onclick="showToast('Modul Remedial dikirim!', 'success')">Kirim Modul Remedial</button></td>
+          	</tr>
+          	</tbody>
+          	</table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getKomunikasiWaliGuru() {
+      return `
+        <div class="content-header"><h1>💬 Komunikasi Wali Murid</h1><p>Kirim pengumuman dan pesan pribadi ke orang tua.</p></div>
+        <div class="card">
+        	<div class="card-header">
+        		<h2>Kotak Masuk</h2>
+        		<button class="btn btn-primary" style="width: auto; padding: 12px 24px;" onclick="sendMessage()">Kirim Pengumuman</button>
+        	</div>
+        	<div style="padding: 20px;">
+        		<div class="achievement"><div class="achievement-icon" style="background: var(--accent-red);">!</div>
+        		<div class="achievement-info"><h4>FIRDAUS (Wali KELFIN)</h4><p>Izin konfirmasi jam konsultasi...</p></div></div>
+        	</div>
+        </div>
+      `;
+    }
+
+    function getKalenderGuru() {
+      return getKalenderSiswa(); // Sama dengan siswa
+    }
+
+    function getProfilGuru() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>👤 Profil Saya</h1>
+          <p>Kelola informasi akun Anda</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Informasi Profesional</h2></div>
+          <div style="padding: 20px; display: flex; gap: 32px; align-items: start;">
+          	<div style="width: 120px; height: 120px; background: linear-gradient(135deg, #0B63D6, #00D27A); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 60px; flex-shrink: 0;">👨‍🏫</div>
+          	<div style="flex: 1;">
+          	<h3 style="font-size: 24px; margin-bottom: 8px;">${currentUser.nama}</h3>
+          	<p style="color: var(--text-secondary); margin-bottom: 16px;">NIP: ${currentUser.nip}</p>
+          	<div style="display: grid; gap: 16px;">
+          	<div><strong>Mata Pelajaran:</strong> ${currentUser.mapel}</div>
+          	<div><strong>Kelas Diampu:</strong> XI IPA 1, 2, 3, 4</div>
+          	</div>
+          	<button class="btn btn-primary" onclick="editProfile()" style="width: auto; padding: 12px 24px; margin-top: 24px;">✏️ Edit Profil</button>
+          	</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ========================================
+    // KONTEN ORANG TUA (REMASTERED)
+    // ========================================
+
+    function getBerandaOrtu() {
+      return `
+        <div class="content-header">
+          <h1>Selamat Datang, ${currentUser.nama}! 👋</h1>
+          <p>Dashboard monitoring premium untuk ${currentUser.anak}.</p>
+        </div>
+        <div class="bento-grid">
+          <div class="bento-box box-1x1" onclick="loadDashboardContent('absensi')">
+            <span class="bento-icon">✅</span>
+            <h4>Absensi Hari Ini</h4>
+            <p class="bento-value" style="color: var(--accent-green);">HADIR</p>
+          	<span style="font-size: 12px; color: var(--text-secondary);">Masuk: 07:15</span>
+          </div>
+          <div class="bento-box box-2x1" onclick="loadDashboardContent('nilai')">
+            <span class="bento-icon">📊</span>
+            <h4>Nilai Terbaru</h4>
+            <p>Quiz Fisika: <strong class="bento-value" style="font-size: 24px; color: var(--accent-blue);">85/100</strong></p>
+          </div>
+          <div class="bento-box box-2x1" onclick="loadDashboardContent('pembayaran')">
+            <span class="bento-icon">💳</span>
+            <h4>Tagihan SPP</h4>
+            <p>SPP Bulan Januari: <strong style="color: var(--accent-red);">Belum Lunas</strong></p>
+          	<span class="badge badge-warning" style="margin-top: 12px;">Jatuh Tempo: 10 Jan 2025</span>
+          </div>
+          <div class="bento-box box-1x1" onclick="loadDashboardContent('galeri')">
+            <span class="bento-icon">🖼️</span>
+            <h4>Galeri Kegiatan</h4>
+            <p>Foto baru ditambahkan!</p>
+          </div>
+          <div class="bento-box box-3x1" onclick="loadDashboardContent('monitoring')">
+            <span class="bento-icon">👁️</span>
+            <h4>Aktivitas Real-time</h4>
+            <p>13:00 - Mengikuti Quiz Bahasa Indonesia (Nilai: 92)</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function getMonitoringOrtu() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>👁️ Monitoring Real-time</h1>
+          <p>Pantau aktivitas ${currentUser.anak}</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Aktivitas Hari Ini</h2></div>
+          <div class="table-container">
+          	<table>
+          	<thead><tr><th>Waktu</th><th>Aktivitas</th><th>Status</th></tr></thead>
+          	<tbody>
+          	<tr><td>07:15</td><td>Absen Masuk</td><td><span class="badge badge-success">Tepat Waktu</span></td></tr>
+          	<tr><td>08:00</td><td>Mengikuti Pelajaran Matematika</td><td><span class="badge badge-info">Aktif</span></td></tr>
+          	<tr><td>10:30</td><td>Mengumpulkan Tugas Fisika</td><td><span class="badge badge-success">Selesai</span></td></tr>
+          	<tr><td>13:00</td><td>Mengikuti Quiz Bahasa Indonesia</td><td><span class="badge badge-success">Nilai: 92</span></td></tr>
+          	</tbody>
+          	</table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getNilaiOrtu() {
+      return getNilaiSiswa(); // Sama dengan siswa
+    }
+
+    function getAbsensiOrtu() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>📱 Riwayat Absensi</h1>
+          <p>Pantau kehadiran ${currentUser.anak}</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Riwayat Absensi</h2></div>
+          <div class="table-container">
+          	<table>
+          	<thead><tr><th>Tanggal</th><th>Waktu</th><th>Status</th><th>Keterangan</th></tr></thead>
+          	<tbody>
+          	<tr><td>23 Des 2024</td><td>07:15</td><td><span class="badge badge-success">Hadir</span></td><td>Tepat waktu</td></tr>
+          	<tr><td>22 Des 2024</td><td>07:10</td><td><span class="badge badge-success">Hadir</span></td><td>Tepat waktu</td></tr>
+          	<tr><td>21 Des 2024</td><td>07:35</td><td><span class="badge badge-warning">Terlambat</span></td><td>Terlambat 5 menit</td></tr>
+          	</tbody>
+          	</table>
+          </div>
+        </div>
+      `;
+    }
+
+    function getGaleriOrtu() {
+      // (Fungsi BARU)
+      return `
+        <div class="content-header"><h1>🖼️ Galeri Kegiatan Anak</h1><p>Momen premium ${currentUser.anak} di sekolah.</p></div>
+        <div class="card">
+        <div class="card-header"><h2>Kegiatan Bulan Desember</h2></div>
+        <div class="card-grid" style="padding: 20px;">
+        	<div class="feature-item"><div class="feature-item-icon">🏆</div><h3>Juara 2 Olimpiade</h3><p>20 Des 2024</p></div>
+        	<div class="feature-item"><div class="feature-item-icon">🔬</div><h3>Praktikum Kimia</h3><p>18 Des 2024</p></div>
+        	<div class="feature-item"><div class="feature-item-icon">🎨</div><h3>Pameran Seni</h3><p>15 Des 2024</p></div>
+        </div></div>
+      `;
+    }
+
+    function getPembayaranOrtu() {
+      // (Fungsi Canggih BARU)
+      return `
+        <div class="content-header">
+          <h1>💳 Pembayaran SPP dan Keuangan</h1>
+          <p>Kelola keuangan sekolah ${currentUser.anak} dengan aman dan mudah.</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Tagihan Aktif</h2>
+          </div>
+          <div style="padding: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); gap: 16px;">
+            <div>
+              <h4>SPP Bulan Januari 2025</h4>
+              <p style="color: var(--accent-red); font-weight: 600;">Jatuh Tempo: 10 Januari 2025</p>
+              <h2 style="font-size: 28px; font-weight: 800; color: var(--text-primary); margin-top: 8px;">Rp 750.000</h2>
+            </div>
+            <button class="btn btn-primary" onclick="bayarSekarangModal()" style="width: auto; padding: 16px 32px;">
+              Bayar Sekarang
+            </button>
+          </div>
+          <div style="padding: 24px;">
+            <h4>Riwayat Pembayaran</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">SPP Bulan Desember 2024 <span class="badge badge-success">LUNAS</span></p>
+          	<p style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">SPP Bulan November 2024 <span class="badge badge-success">LUNAS</span></p>
+          </div>
+        </div>
+      `;
+    }
+
+    function getKomunikasiOrtu() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>💬 Komunikasi</h1>
+          <p>Hubungi guru dan sekolah</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Pesan Terbaru</h2>
+            <button class="btn btn-primary" onclick="sendMessage()" style="width: auto; padding: 12px 24px;">✉️ Kirim Pesan</button>
+          </div>
+          <div style="padding: 20px;">
+          	<div class="achievement"><div class="achievement-icon" style="background: var(--accent-blue);">📢</div>
+          	<div class="achievement-info"><h4>Wali Kelas XI IPA 2</h4><p>Selamat siang Bapak/Ibu, akan ada pertemuan...</p></div></div>
+          </div>
+        </div>
+      `;
+    }
+
+    function getKalenderOrtu() {
+      return getKalenderSiswa(); // Sama dengan siswa
+    }
+
+    function getProfilOrtu() {
+      // (Fungsi lama Anda)
+      return `
+        <div class="content-header">
+          <h1>👤 Profil Saya</h1>
+          <p>Kelola informasi akun Anda</p>
+        </div>
+        <div class="card">
+          <div class="card-header"><h2>Informasi Pribadi</h2></div>
+          <div style="padding: 20px; display: flex; gap: 32px; align-items: start;">
+          	<div style="width: 120px; height: 120px; background: linear-gradient(135deg, #0B63D6, #00D27A); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 60px; flex-shrink: 0;">👨‍👩‍👧</div>
+          	<div style="flex: 1;">
+          	<h3 style="font-size: 24px; margin-bottom: 8px;">${currentUser.nama}</h3>
+          	<p style="color: var(--text-secondary); margin-bottom: 16px;">Orang Tua dari ${currentUser.anak}</p>
+          	<div style="display: grid; gap: 16px;">
+          	<div><strong>Nama Anak:</strong> ${currentUser.anak}</div>
+          	<div><strong>NIS Anak:</strong> ${currentUser.nis_anak}</div>
+          	<div><strong>Kelas:</strong> ${currentUser.kelas}</div>
+          	</div>
+          	<button class="btn btn-primary" onclick="editProfile()" style="width: auto; padding: 12px 24px; margin-top: 24px;">✏️ Edit Profil</button>
+          	</div>
+          </div>
+        </div>
+      `;
+    }
+
+
+    // ========================================
+    // KONTEN WEBSITE PUBLIK (BARU)
+    // ========================================
+    function loadPublicPage(page, element) {
+      const content = document.getElementById('publicContent');
+      
+      // Hapus kelas 'active' dari semua tombol
+      document.querySelectorAll('#publicNav button').forEach(btn => btn.classList.remove('active'));
+      // Tambahkan 'active' ke tombol yang diklik
+      if(element) element.classList.add('active');
+      
+      if (page === 'beranda') {
+        content.innerHTML = getBerandaPublik();
+      } else if (page === 'berita') {
+        content.innerHTML = getBeritaPublik();
+      } else if (page === 'kegiatan') {
+        content.innerHTML = getKegiatanPublik();
+      } else if (page === 'lokasi') {
+        content.innerHTML = getLokasiPublik();
+      } else if (page === 'kontak') {
+        content.innerHTML = getKontakPublik();
+      }
+      
+      // Animasi fade-in
+      content.classList.remove('content-fade-in');
+      void content.offsetWidth;
+      content.classList.add('content-fade-in');
+    }
+
+    function getBerandaPublik() {
+      return `
+        <div class="hero-publik">
+          <h1>Selamat Datang di <span class="gradient-text">SMA Cerdas Digital</span></h1>
+          <p>Membentuk generasi pemimpin masa depan melalui ekosistem pendidikan terintegrasi yang super canggih, modern, dan profesional.</p>
+          <button class="btn btn-primary" style="width: auto; padding: 16px 32px;" onclick="showLoginPage()">Daftar Sekarang</button>
+        </div>
+        <h2 style="font-size: 28px; font-weight: 800; margin-top: 40px; text-align: center;">Berita & Kegiatan Terbaru</h2>
+        <div class="article-grid">
+        	<div class="article-card"><div class="article-card-img">🏆</div><div class="article-card-content"><h3>Siswa Raih Emas di Olimpiade Sains</h3><p>20 Des 2024</p></div></div>
+        	<div class="article-card"><div class="article-card-img">🔬</div><div class="article-card-content"><h3>Lab Riset AI Baru Diresmikan</h3><p>18 Des 2024</p></div></div>
+        	<div class="article-card"><div class="article-card-img">🎨</div><div class="article-card-content"><h3>Pameran Seni Digital "Masa Depan"</h3><p>15 Des 2024</p></div></div>
+        </div>
+      `;
+    }
+
+    function getBeritaPublik() {
+      return `
+        <div class="content-header">
+          <h1>Berita Terbaru</h1>
+          <p>Simak update dan pencapaian terbaru dari SMA Cerdas Digital.</p>
+        </div>
+        <div class="article-grid">
+        	<div class="article-card"><div class="article-card-img">🏆</div><div class="article-card-content"><h3>Siswa Raih Emas di Olimpiade Sains</h3><p>20 Des 2024</p></div></div>
+        	<div class="article-card"><div class="article-card-img">🔬</div><div class="article-card-content"><h3>Lab Riset AI Baru Diresmikan</h3><p>18 Des 2024</p></div></div>
+        	<div class="article-card"><div class="article-card-img">🎨</div><div class="article-card-content"><h3>Pameran Seni Digital "Masa Depan"</h3><p>15 Des 2024</p></div></div>
+        	<div class="article-card"><div class="article-card-img">🗣️</div><div class="article-card-content"><h3>Seminar "Leadership 4.0"</h3><p>12 Des 2024</p></div></div>
+        </div>
+      `;
+    }
+
+    function getKegiatanPublik() {
+      // (Gunakan fungsi galeri untuk tampilan premium)
+      return getGaleriOrtu();
+    }
+
+    function getLokasiPublik() {
+      return `
+        <div class="content-header">
+          <h1>Lokasi & Kampus</h1>
+          <p>Kunjungi kampus premium kami.</p>
+        </div>
+        <div class="card">
+        	<div style="height: 400px; background: var(--bg-tertiary); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-weight: 600;">
+        		[Peta Interaktif Google Maps Akan Tampil Di Sini]
+        	</div>
+        	<div style="padding: 24px 0 0;">
+        		<h3>SMA Cerdas Digital</h3>
+        		<p>Jl. Boulevard Pendidikan No. 1, Kota Cerdas, Indonesia</p>
+        	</div>
+        </div>
+      `;
+    }
+
+    function getKontakPublik() {
+      return `
+        <div class="content-header">
+          <h1>Kontak Kami</h1>
+          <p>Hubungi tim admisi profesional kami.</p>
+        </div>
+        <div class="card">
+        	<form style="padding: 20px;">
+        		<div class="form-group"><label>Nama Lengkap</label><input type="text" class="form-group input" style="background: var(--bg-tertiary); color: var(--text-primary); border-color: var(--border-color);" placeholder="Nama Anda"></div>
+        		<div class="form-group"><label>Email</label><input type="email" class="form-group input" style="background: var(--bg-tertiary); color: var(--text-primary); border-color: var(--border-color);" placeholder="email@anda.com"></div>
+        		<div class="form-group"><label>Pesan</label><textarea class="notes-editor" placeholder="Pesan Anda..."></textarea></div>
+        		<button type="button" class="btn btn-primary" onclick="showToast('Pesan terkirim!', 'success')">Kirim Pesan</button>
+        	</form>
+        </div>
+      `;
+    }
+
+
+    // ========================================
+    // FUNGSI INTERAKSI & LAINNYA
+    // ========================================
+    function initContentInteractions(menuId) {
+      // (Tidak perlu lagi)
+    }
+
+    // --- AI QUIZ BUILDER ---
+    window.generateAIFakeSoal = function() {
+      const btnText = document.getElementById('aiBtnText');
+      const resultContainer = document.getElementById('aiResult');
+      const resultContent = document.getElementById('aiResultContent');
+      const prompt = document.getElementById('aiPrompt').value;
+
+      if (!prompt) {
+      	showToast('❌ Prompt AI tidak boleh kosong!', 'error');
+      	return;
+      }
+      
+      btnText.innerHTML = '<span class="spinner"></span> AI sedang memproses...';
+      resultContainer.style.display = 'none';
+      
+      setTimeout(() => {
+      	btnText.innerHTML = '🚀 Generate Soal';
+      	resultContent.innerHTML = `
+      	<p><strong>1. Apa fungsi utama dari Teks Eksposisi?</strong></p>
+      	<p style="font-size: 13px;">A. Menghibur pembaca</p>
+      	<p style="font-size: 13px; color: var(--accent-green);"><strong>B. Menjelaskan atau memaparkan informasi</strong></p>
+      	<p style="font-size: 13px;">C. Menceritakan kisah fiksi</p>
+      	<hr style="margin: 12px 0; border-color: var(--border-color);">
+      	<p><strong>2. Berikut ini yang BUKAN struktur Teks Eksposisi adalah...</strong></p>
+      	<p style="font-size: 13px;">A. Tesis</p>
+      	<p style="font-size: 13px;">B. Argumentasi</p>
+      	<p style="font-size: 13px; color: var(--accent-green);"><strong>C. Orientasi</strong></p>
+      	<hr style="margin: 12px 0; border-color: var(--border-color);">
+      	<button class="btn btn-primary" style="width: auto; padding: 10px 20px; margin-top: 16px;" onclick="showToast('✅ Soal disimpan ke Bank Soal!', 'success')">
+      	Simpan ke Bank Soal
+      	</button>
+      	`;
+      	resultContainer.style.display = 'block';
+      	showToast('✨ Soal berhasil di-generate AI!', 'success');
+      }, 2500);
+    }
+
+    // --- MODAL PEMBAYARAN ---
+    window.bayarSekarangModal = function() {
+      openModal('🔒 Lakukan Pembayaran Aman', `
+      	<div style="padding: 20px;">
+      	<p style="margin-bottom: 16px; color: var(--text-secondary);">Pilih metode pembayaran premium:</p>
+      	<div class="card-grid">
+      	<div class="feature-item" onclick="showToast('Kode QRIS Dibuat!', 'success'); closeModal();">
+      	<div class="feature-item-icon" style="font-size: 40px;">📱</div><h3>QRIS</h3><p>Scan untuk membayar (Semua E-Wallet)</p>
+      	</div>
+      	<div class="feature-item" onclick="showToast('Kode Virtual Account Dibuat!', 'success'); closeModal();">
+      	<div class="feature-item-icon" style="font-size: 40px;">🏦</div><h3>Virtual Account</h3><p>BCA, Mandiri, BNI, BRI</p>
+      	</div>
+      	<div class="feature-item" onclick="showToast('Silakan gesek kartu Anda!', 'success'); closeModal();">
+      	<div class="feature-item-icon" style="font-size: 40px;">💳</div><h3>Kartu Kredit</h3><p>Visa, Mastercard</p>
+      	</div>
+      	</div>
+      	</div>
+      `);
+    };
+
+    // --- INTERAKSI LAMA (QUIZ, DLL) ---
+    // (Semua fungsi lama seperti startQuizReal, openNoteReal, dll tetap ada di sini)
+    // (Saya singkat agar tidak terlalu panjang, tapi di kode Anda, biarkan fungsi-fungsi itu tetap ada)
+    let quizData = { 'Matematika': [{ q: '15 × 8?', options: ['120', '125', '130'], correct: 0 }], 'Kimia': [{ q: 'Simbol Oksigen?', options: ['O', 'Ox', 'O2'], correct: 0 }] };
+    let currentQuiz = null, currentQuestionIndex = 0, quizAnswers = [], quizTimer = null, quizTimeLeft = 900;
+    window.startQuizReal = function(subject) { /* ... (logika quiz lama Anda) ... */ showToast(`Memulai Quiz ${subject}...`); };
+    window.viewQuizResult = function(subject, score) { /* ... (logika quiz lama Anda) ... */ };
+    window.absenNow = function() { showToast('✅ Absensi berhasil! Selamat belajar!', 'success'); };
+    window.openMateri = function(mapel) { openModal(`📚 ${mapel}`, `<p>Materi untuk ${mapel}...</p>`); };
+    window.editProfile = function() { showToast('✏️ Fitur edit profil akan segera tersedia!', 'success'); };
+    window.openKelas = function(kelas) { showToast(`🏫 Membuka kelas ${kelas}...`, 'success'); };
+    window.createMateri = function() { showToast('➕ Fitur tambah materi akan segera tersedia!', 'success'); };
+    window.createTugas = function() { showToast('➕ Fitur buat tugas akan segera tersedia!', 'success'); };
+    window.generateQR = function() { document.getElementById('qrCodeIcon').textContent = '🏁'; showToast('🔄 QR Code berhasil di-generate!', 'success'); };
+    window.sendMessage = function() { openModal('✉️ Kirim Pesan', `<p>Form kirim pesan...</p>`); };
+
+
+    // ========================================
+    // INISIALISASI APLIKASI (REMASTERED)
+    // ========================================
+    window.addEventListener('load', () => {
+      const savedUser = localStorage.getItem('currentUser');
+      const savedRole = localStorage.getItem('currentRole');
+      
+      if (savedUser && savedRole) {
+        // --- SESI DITEMUKAN (SUPER CANGGIH) ---
+        currentUser = JSON.parse(savedUser);
+        currentRole = savedRole;
+        
+        // 1. Tampilkan website publik
+        showPublicWebsite();
+        
+        // 2. Ubah tombol "Masuk" menjadi "Dashboard"
+        portalBtn.textContent = '🚀 Buka Dashboard';
+        portalBtn.onclick = showDashboard; // Ubah aksi tombol
+        
+      } else {
+        // --- TIDAK ADA SESI ---
+        // 1. Tampilkan website publik
+        showPublicWebsite();
+        
+        // 2. Atur tombol "Masuk Portal"
+        portalBtn.textContent = '🔐 Masuk Portal';
+        portalBtn.onclick = showLoginPage;
+      }
+      
+      // Muat Halaman Beranda Publik secara default
+      loadPublicPage('beranda', document.querySelector('#publicNav button[data-page="beranda"]'));
+    });
+
+    // ========================================
+    // KEYBOARD SHORTCUTS (PROFESIONAL)
+    // ========================================
+    document.addEventListener('keydown', (e) => {
+      // Ctrl+D to toggle dark mode
+      if (e.ctrlKey && e.key === 'd') {
+        e.preventDefault();
+        themeToggle.click();
+      }
+      
+      // ESC to close modal DAN login page
+      if (e.key === 'Escape') {
+        if (modal.classList.contains('active')) {
+          closeModal();
+        } else if (!landingPageEl.classList.contains('hidden')) {
+          // Jika halaman login (landingPage) aktif, ESC akan menutupnya
+          showPublicWebsite();
+        }
+      }
+    });
+
+    // ========================================
+    // FUNGSI CANGGIH PENDUKUNG LAINNYA
+    // ========================================
+
+    // --- AI QUIZ BUILDER ---
+    window.generateAIFakeSoal = function() {
+      const btnText = document.getElementById('aiBtnText');
+      const resultContainer = document.getElementById('aiResult');
+      const resultContent = document.getElementById('aiResultContent');
+      const prompt = document.getElementById('aiPrompt').value;
+
+      if (!prompt) {
+      	showToast('❌ Prompt AI tidak boleh kosong!', 'error');
+      	return;
+      }
+      
+      btnText.innerHTML = '<span class="spinner"></span> AI sedang memproses...';
+      resultContainer.style.display = 'none';
+      
+      setTimeout(() => {
+      	btnText.innerHTML = '🚀 Generate Soal';
+      	resultContent.innerHTML = `
+      	<p><strong>1. Apa fungsi utama dari Teks Eksposisi?</strong></p>
+      	<p style="font-size: 13px;">A. Menghibur pembaca</p>
+      	<p style="font-size: 13px; color: var(--accent-green);"><strong>B. Menjelaskan atau memaparkan informasi</strong></p>
+      	<p style="font-size: 13px;">C. Menceritakan kisah fiksi</p>
+      	<hr style="margin: 12px 0; border-color: var(--border-color);">
+      	<p><strong>2. Berikut ini yang BUKAN struktur Teks Eksposisi adalah...</strong></p>
+      	<p style="font-size: 13px;">A. Tesis</p>
+      	<p style="font-size: 13px;">B. Argumentasi</p>
+      	<p style="font-size: 13px; color: var(--accent-green);"><strong>C. Orientasi</strong></p>
+      	<hr style="margin: 12px 0; border-color: var(--border-color);">
+      	<button class="btn btn-primary" style="width: auto; padding: 10px 20px; margin-top: 16px;" onclick="showToast('✅ Soal disimpan ke Bank Soal!', 'success')">
+      	Simpan ke Bank Soal
+      	</button>
+      	`;
+      	resultContainer.style.display = 'block';
+      	showToast('✨ Soal berhasil di-generate AI!', 'success');
+      }, 2500);
+    }
+
+    // --- MODAL PEMBAYARAN ---
+    window.bayarSekarangModal = function() {
+      openModal('🔒 Lakukan Pembayaran Aman', `
+      	<div style="padding: 20px;">
+      	<p style="margin-bottom: 16px; color: var(--text-secondary);">Pilih metode pembayaran premium:</p>
+      	<div class="card-grid">
+      	<div class="feature-item" onclick="showToast('Kode QRIS Dibuat!', 'success'); closeModal();">
+      	<div class="feature-item-icon" style="font-size: 40px;">📱</div><h3>QRIS</h3><p>Scan untuk membayar (Semua E-Wallet)</p>
+      	</div>
+      	<div class="feature-item" onclick="showToast('Kode Virtual Account Dibuat!', 'success'); closeModal();">
+      	<div class="feature-item-icon" style="font-size: 40px;">🏦</div><h3>Virtual Account</h3><p>BCA, Mandiri, BNI, BRI</p>
+      	</div>
+      	<div class="feature-item" onclick="showToast('Silakan gesek kartu Anda!', 'success'); closeModal();">
+      	<div class="feature-item-icon" style="font-size: 40px;">💳</div><h3>Kartu Kredit</h3><p>Visa, Mastercard</p>
+      	</div>
+      	</div>
+      	</div>
+      `);
+    };
+
+    // --- FUNGSI KLIK SEMENTARA (DARI FILE ASLI ANDA, DISESUAIKAN) ---
+    // (Fungsi yang tidak terpakai seperti pomodoro & notes dihapus untuk efisiensi)
+    window.absenNow = function() { showToast('✅ Absensi berhasil! Selamat belajar!', 'success'); };
+    window.openMateri = function(mapel) { openModal(`📚 ${mapel}`, `<div style="padding: 20px;"><p>Materi untuk <strong>${mapel}</strong> akan tampil di sini. Ini bisa berisi video, PDF, atau teks interaktif.</p></div>`); };
+    window.editProfile = function() { showToast('✏️ Fitur edit profil akan segera tersedia!', 'success'); };
+    window.openKelas = function(kelas) { showToast(`🏫 Membuka manajemen kelas ${kelas}...`, 'success'); };
+    window.createMateri = function() { showToast('➕ Fitur tambah materi akan segera tersedia!', 'success'); };
+    window.createTugas = function() { showToast('➕ Fitur buat tugas akan segera tersedia!', 'success'); };
+    window.generateQR = function() { 
+    	const qrIcon = document.getElementById('qrCodeIcon');
+    	if (qrIcon) qrIcon.textContent = '🏁';
+    	showToast('🔄 QR Code berhasil di-generate! Siswa bisa absen.', 'success'); 
+    };
+    window.sendMessage = function() { openModal('✉️ Kirim Pesan', `<div style="padding: 20px;"><p>Form kirim pesan profesional akan tampil di sini.</p></div>`); };
+
+
+    // --- QUIZ SYSTEM (REMASTERED DENGAN INTEGRASI GAMIFIKASI) ---
+    let quizData = {
+      'Matematika': [
+        { q: 'Berapakah hasil dari 15 × 8?', options: ['120', '125', '130', '115'], correct: 0 },
+        { q: 'Jika x + 5 = 12, maka x = ?', options: ['5', '6', '7', '8'], correct: 2 },
+      	{ q: 'Luas persegi dengan sisi 6 cm adalah?', options: ['24 cm²', '30 cm²', '36 cm²', '42 cm²'], correct: 2 },
+      ],
+      'Kimia': [
+        { q: 'Simbol kimia untuk Oksigen adalah?', options: ['O', 'Ox', 'O2', 'Ok'], correct: 0 },
+      	{ q: 'Air memiliki rumus kimia?', options: ['H2O', 'HO2', 'H2O2', 'HO'], correct: 0 },
+      ]
+    };
+    let currentQuiz = null;
+    let currentQuestionIndex = 0;
+    let quizAnswers = [];
+    let quizTimer = null;
+    let quizTimeLeft = 900; // 15 minutes
+
+    window.startQuizReal = function(subject) {
+      currentQuiz = subject;
+      currentQuestionIndex = 0;
+      quizAnswers = [];
+      quizTimeLeft = (quizData[subject] || quizData['Matematika']).length * 60; // 1 menit per soal
+      
+      const questions = quizData[subject] || quizData['Matematika'];
+      
+      openModal(`📝 Quiz ${subject}`, `
+        <div class="quiz-container" style="padding: 20px;">
+          <div class="quiz-timer" id="quizTimer">⏱️ ${Math.floor(quizTimeLeft / 60)}:${(quizTimeLeft % 60).toString().padStart(2, '0')}</div>
+          <div id="quizQuestionContainer"></div>
+        </div>
+      `);
+      
+      displayQuizQuestion();
+      startQuizTimer();
+    };
+
+    function displayQuizQuestion() {
+      const questions = quizData[currentQuiz] || quizData['Matematika'];
+      const question = questions[currentQuestionIndex];
+      
+      const container = document.getElementById('quizQuestionContainer');
+      if (!container) return;
+      
+      container.innerHTML = `
+        <div class="quiz-question">
+          <h3 style="margin-bottom: 8px; color: var(--text-secondary);">Soal ${currentQuestionIndex + 1} dari ${questions.length}</h3>
+          <h2 style="margin-bottom: 24px; font-size: 20px;">${question.q}</h2>
+          <div style="display: grid; gap: 12px;">
+            ${question.options.map((opt, idx) => `
+              <div class="quiz-option" onclick="selectQuizAnswer(${idx})">
+                ${String.fromCharCode(65 + idx)}. ${opt}
+              </div>
+            `).join('')}
+          </div>
+          <div style="margin-top: 32px; display: flex; gap: 12px; justify-content: space-between;">
+            <button class="btn btn-primary" onclick="previousQuestion()" style="width: auto; padding: 12px 24px; background: var(--text-secondary);" ${currentQuestionIndex === 0 ? 'disabled' : ''}>
+              ← Sebelumnya
+            </button>
+            <button class="btn btn-primary" onclick="nextQuestion()" style="width: auto; padding: 12px 24px;">
+              ${currentQuestionIndex === questions.length - 1 ? '✅ Selesai' : 'Selanjutnya →'}
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    window.selectQuizAnswer = function(answerIndex) {
+      quizAnswers[currentQuestionIndex] = answerIndex;
+      const options = document.querySelectorAll('.quiz-option');
+      options.forEach((opt, idx) => {
+        opt.classList.remove('selected');
+        if (idx === answerIndex) {
+          opt.classList.add('selected');
+section.
+
+        }
+      });
+    };
+
+    window.nextQuestion = function() {
+      const questions = quizData[currentQuiz] || quizData['Matematika'];
+      if (currentQuestionIndex === questions.length - 1) {
+        finishQuiz();
+      } else {
+        currentQuestionIndex++;
+        displayQuizQuestion();
+      }
+    };
+
+    window.previousQuestion = function() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        displayQuizQuestion();
+      }
+    };
+
+    function startQuizTimer() {
+      if (quizTimer) clearInterval(quizTimer);
+      quizTimer = setInterval(() => {
+        quizTimeLeft--;
+        const minutes = Math.floor(quizTimeLeft / 60);
+        const seconds = quizTimeLeft % 60;
+        const timerEl = document.getElementById('quizTimer');
+        if (timerEl) {
+          timerEl.textContent = `⏱️ ${minutes}:${seconds.toString().padStart(2, '0')}`;
+          if (quizTimeLeft <= 60 && !timerEl.classList.contains('warning')) {
+        	  timerEl.classList.add('warning');
+          }
+        }
+        if (quizTimeLeft <= 0) {
+          clearInterval(quizTimer);
+          finishQuiz();
+        }
+      }, 1000);
+    }
+
+    function finishQuiz() {
+      clearInterval(quizTimer);
+      const questions = quizData[currentQuiz] || quizData['Matematika'];
+      let correctCount = 0;
+      questions.forEach((q, idx) => {
+        if (quizAnswers[idx] === q.correct) correctCount++;
+      });
+      const score = Math.round((correctCount / questions.length) * 100);
+
+      // --- REMASTERED: GAMIFIKASI TERINTEGRASI ---
+      let xpMessage = '';
+      if (currentRole === 'siswa') {
+      	if (score >= 70) {
+      	const xpGained = 50 + (score - 70); // Bonus XP
+      	currentUser.xp += xpGained;
+      	localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      	xpMessage = `Selamat! Anda mendapat +${xpGained} XP!`;
+      	showToast(`🎉 Skor: ${score}! ${xpMessage}`, 'success');
+      	} else {
+      	xpMessage = 'Sayang sekali, tidak ada XP yang didapat. Coba lagi!';
+      	showToast(`😔 Skor: ${score}. Coba lagi!`, 'error');
+      	}
+      }
+      // --- AKHIR REMASTERED ---
+      
+      openModal(`🎉 Quiz Selesai!`, `
+        <div style="padding: 40px; text-align: center;">
+      	<div style="width: 120px; height: 120px; margin: 0 auto 24px; background: ${score >= 70 ? 'linear-gradient(135deg, #00D27A, #00ff88)' : 'linear-gradient(135deg, #FF4757, #ff6b7a)'}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 60px;">
+      	${score >= 70 ? '🎉' : '😔'}
+      	</div>
+      	<h2 style="font-size: 48px; font-weight: 900; margin-bottom: 12px; background: linear-gradient(135deg, #0B63D6, #00D27A); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      	${score}
+      	</h2>
+      	<p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 8px;">
+      	Anda menjawab ${correctCount} dari ${questions.length} soal dengan benar
+      	</p>
+      	<p style="font-size: 14px; color: var(--text-primary); font-weight: 600; margin-bottom: 32px;">${xpMessage}</p>
+      	<button class="btn btn-primary" onclick="closeModal()">Tutup</button>
+        </div>
+      `);
+    }
+
+    window.viewQuizResult = function(subject, score) {
+      openModal(`📊 Hasil Quiz ${subject}`, `
+        <div style="padding: 40px; text-align: center;">
+      	<div style="width: 120px; height: 120px; margin: 0 auto 24px; background: linear-gradient(135deg, #00D27A, #00ff88); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 60px;">✅</div>
+      	<h2 style="font-size: 48px; font-weight: 900; margin-bottom: 12px; background: linear-gradient(135deg, #0B63D6, #00D27A); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+Ganti di 11, Nov 2025 04:08:42
+      	${score}
+      	</h2>
+      	<p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 32px;">
+      	Quiz telah selesai dikerjakan
+      	</p>
+      	<button class="btn btn-primary" onclick="closeModal()">Tutup</button>
+        </div>
+      `);
+    };
+
+  </script>
+</body>
+</html>
